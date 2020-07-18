@@ -7,23 +7,26 @@
   </head>
 
   <body>
-    <p>Ejemplo Objetos</p>
+    <p>Ejemplo Objetos JSON</p>
   </body>
   <script>
+    // Declaro objetos que tienen datos con el formato clave : valor separados por comas.
+    // El valor pueden ser de cualquier tipo como strings, numeros, booleanos incluso listas o arrays
       var diego = {
           'nombre' : 'Diego',
-          'apellido' : 'nuñez',
+          'apellido' : 'Nuñez',
           'edad': 18,
           'casado': false,
           'deportes': ['futbol','taekwondo','rugby']
       }
 
+    // También se puede guardar como valor a otro objeto (en el ejemplo se ve en el caso de direccion)
+    // y también se pueden guardar funciones (como el caso de bio)
       var damian = {
           "nombre" : 'Damian',
           "apellido" : 'mazzini',
           "edad" : 25,
           "casado" : true,
-          'deportes': ['futbol','taekwondo','rugby'],
           "direccion": {
               "calle": "Guarani",
               "altura": "608",
@@ -32,17 +35,56 @@
               "cosas" : ['cosa1','cosa2','cosa3']
           },
           "bio": function () {
-             alert(this.nombre + ' tiene ' + this.edad + ' años. Le gusta ' + this.deportes[0] + ' y ' + this.deportes[1] + '.');
+             alert(this.nombre + ' tiene ' + this.edad + ' años. Vive en ' + this.direccion.calle +
+              '  ' + this.direccion.altura + '.');
            }
       }
 
-      diego.deportes.push('karate')
+      //Para acceder a los valores se puede utilizar la notación de punto
+      document.write(diego.nombre)
+      document.write('<br>')
+      document.write(diego.apellido)
+      document.write('<br>')
+      document.write(diego.edad)
+      document.write('<br>')
+      document.write(diego.casado)
+      document.write('<br>')
+      
+      //Para acceder a valores que esten dentro de una lista es de la misma manera que accedemos a
+      // cualquier lista
+      document.write(diego.deportes[1])
+      document.write('<br>')
+      
+      //Para acceder a valores que esten dentro objeto anidado es con la notación de puntos
+      document.write(damian.direccion.calle)
+      document.write('<br>')
+      document.write(damian.direccion.altura)
+      document.write('<br>')
+      document.write(damian.direccion.piso)
+      document.write('<br>')
 
+      document.write('<br>')
+      //Se pueden modificar los valores asignando los nuevos valores con la notacion punto
       diego.nombre = 'nuevo nombre de diego'
       damian.direccion.calle = 'carranza'
 
+      document.write('Luego de modificar los valores: ')
+      document.write('<br><br>')
+      document.write(diego.nombre)
+      document.write('<br>')
+      document.write(damian.direccion.calle)
+      document.write('<br>')
+
+      document.write('<br>')
+
+      // Cuando el valor es una lista se pueden agregar o eliminar elementos 
+      // como lo hacemos con cualquier lista
+      diego.deportes.push('karate')
+      
+      document.write(diego.deportes)
+      
+      // Cuando el valor es una funcion se puede invocar utilizando los parentesis
       damian.bio()
 
-      document.write(damian.direccion.cosas[1])
   </script>
 </html>
