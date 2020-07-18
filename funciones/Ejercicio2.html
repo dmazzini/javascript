@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio con funciones</title>
+</head>
+<body>
+
+
+
+<script>
+/*Escribir una función que se llame check que toma como parámetros un array y un elemento y devuelve si el elemento pertenece del array. Aclaración: los elementos pueden ser números o letras. Ejemplos:
+check([66, 101], 66) devuelve true
+check([78, 107, 115], 8) devuelve false
+check(['t', 'e', 's', 't'], 'e') devuelve true
+check(['t', 'o', 's', 't'], 'e') devuelve false
+check([ 4, 8, 15], 16)
+*/
+
+
+function check(lista, elemento) {
+	var resultado = false;
+
+	var i = 0;
+	while(i < lista.length) {
+		if (lista[i] == elemento) {
+			return true;
+		}
+		i++;
+	}
+/*
+	for(var i = 0; i < lista.length; i++) {
+
+		if (lista[i] == elemento) {
+			return true;
+		}
+
+	}
+*/
+	return resultado;
+}
+document.write(check(['x','y','z'], 'b') )
+
+</script>
+	
+
+
+</body>
+</html>
